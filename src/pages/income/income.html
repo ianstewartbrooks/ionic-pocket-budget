@@ -1,12 +1,44 @@
 <ion-header>
 
   <ion-navbar color="darkBlue">
-    <ion-title center-text>Income</ion-title>
+    <ion-title text-center>Income</ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="addIncome()" icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <p>Here is a list of your income</p>
+  <p class="message">{{ message }}</p>
+  <ion-list>
+    <div *ngFor="let item of income">
+      <ion-item-sliding>
+        <ion-item no-lines>
+          <ion-card (click)="onClick(item.id)">
+            <ion-card-header>
+              <p class="name">{{ item.name }}</p>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="amount">{{ item.amount | number:"1.2"}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button icon-only clear color="dark" (click)="onDeleteIncome(item.id)">
+            <ion-icon name="md-trash" class="delete-icon"></ion-icon>
+          </button>
+        </ion-item-options>
+
+        <ion-item-options side=" right ">
+          <button ion-button clear icon-only color="dark" (click)="onEditIncome(item.id, item.name, item.amount)">
+            <ion-icon name="md-brush" class="edit-icon "></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
 </ion-content>

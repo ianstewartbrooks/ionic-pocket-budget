@@ -1,0 +1,26 @@
+page-modal-edit {
+    p {
+        text-align: center;
+        font-size: 3vh;
+        font-weight: bold;
+    };
+
+    #form {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 10%;
+        text-align: center;
+
+        ion-input, ion-label {
+            font-size: 3vh;
+            font-weight: bold;
+            text-align: center;
+        }
+        ion-input {
+            input {
+                border: 0px;
+                text-align: center;
+            }
+        }
+    }
+}

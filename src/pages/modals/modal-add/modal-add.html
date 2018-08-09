@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="darkGreen">
+    <ion-title text-center>Add</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+  <p>Fill in the below details or click Close to cancel.</p>
+  <div id="form">
+    <ion-item>
+      <ion-label floating>Name it</ion-label>
+      <ion-input type="text" [(ngModel)]="itemName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="amount"></ion-input>
+    </ion-item>
+    <button ion-button color="darkGreen" block round (click)="onOk()">Ok</button>
+  </div>
+</ion-content>

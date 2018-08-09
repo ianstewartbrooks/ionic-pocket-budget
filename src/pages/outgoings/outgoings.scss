@@ -1,6 +1,36 @@
 page-outgoings {
-    p {
+    .message {
         text-align: center;
         font-size: 3vh;
+        margin-bottom: 20px;
     }
+
+    .delete-icon {
+        font-size: 10vh;
+    }
+
+    .edit-icon {
+        font-size: 10vh;
+    }
+
+    .card {
+        background-color: darkgreen;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .name {
+        font-size: 5vh;
+        color: gold;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .amount {
+        font-size: 3vh;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
 }
