@@ -50,9 +50,10 @@ export class OutgoingsPage {
 
     if (this.outGoings == null || this.outGoings.length == 0) {
       this.message =
-        "No expenditure added yet. Add some by clicking the + icon the top right.";
+        "No expenditure added yet. Add some by clicking the + icon in the top right corner.";
     } else {
-      this.message = "Here is your expenditure";
+      this.message =
+        "Here is your expenditure. Swipe item  left/right to access options.";
     }
   }
 

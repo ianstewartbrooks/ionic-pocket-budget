@@ -47,9 +47,10 @@ export class IncomePage {
 
     if (this.income == null || this.income.length == 0) {
       this.message =
-        "No income added yet. Add some by clicking the + icon the top right.";
+        "No income added yet. Add some by clicking the + icon in the top right corner.";
     } else {
-      this.message = "Here is all your income";
+      this.message =
+        "Here is all your income. Swipe item left/right to access options.";
     }
   }
 
