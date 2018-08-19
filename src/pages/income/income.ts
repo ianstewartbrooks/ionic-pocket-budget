@@ -2,8 +2,9 @@ import { Component } from "@angular/core";
 import {
   IonicPage,
   NavController,
-  NavParams,
-  ModalController
+  ModalController,
+  ItemSliding,
+  AlertController
 } from "ionic-angular";
 import { DataModel } from "../../providers/data/data.model";
 import { DataProvider } from "../../providers/data/data";
@@ -24,13 +25,14 @@ export class IncomePage {
   constructor(
     public navCtrl: NavController,
     public data: DataProvider,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController
   ) {
     this.income = [];
     this.getData();
   }
 
-  onClick(id: number) {}
+  // onClick(id: number) {}
 
   addIncome() {
     let data = { type: "income" };
@@ -64,11 +66,31 @@ export class IncomePage {
     modalEditPage.present();
   }
 
-  async onDeleteIncome(id: any) {
-    console.log("id: ", id);
-    await this.data.deleteIncomeItem(id);
-    console.log("Income after deletion", this.income);
+  async onDeleteIncome(id: any, slidingItem: ItemSliding) {
+    let alert = this.alertCtrl.create({
+      // title: "Confirm Deletion",
+      message: "Do you want to delete this item?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {
+            slidingItem.close();
+          }
+        },
+        {
+          text: "Delete",
+          handler: () => {
+            this.deleteItem(id);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
+  async deleteItem(id: any) {
+    await this.data.deleteIncomeItem(id);
     this.getData();
   }
 }

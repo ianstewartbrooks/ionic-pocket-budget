@@ -2,18 +2,12 @@ import { Component } from "@angular/core";
 import {
   IonicPage,
   NavController,
-  NavParams,
-  ModalController
+  ModalController,
+  AlertController
 } from "ionic-angular";
+import { ItemSliding } from "ionic-angular";
 import { DataProvider } from "../../providers/data/data";
 import { DataModel } from "../../providers/data/data.model";
-
-/**
- * Generated class for the OutgoingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,13 +21,16 @@ export class OutgoingsPage {
   constructor(
     public navCtrl: NavController,
     public data: DataProvider,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController
   ) {
     this.outGoings = [];
     this.getData();
   }
 
-  onClick(id: number) {}
+  onDeleteItem() {}
+
+  // onClick(id: number) {}
 
   addOutGoing() {
     let data = { type: "outGoing" };
@@ -53,7 +50,7 @@ export class OutgoingsPage {
         "No expenditure added yet. Add some by clicking the + icon in the top right corner.";
     } else {
       this.message =
-        "Here is your expenditure. Swipe item  left/right to access options.";
+        "Here is your expenditure. Swipe item left/right to access options.";
     }
   }
 
@@ -67,11 +64,31 @@ export class OutgoingsPage {
     modalEditPage.present();
   }
 
-  async onDeleteOutGoing(id: any) {
-    console.log("id: ", id);
-    this.data.deleteOutGoingItem(id);
-    console.log("Outgoings after deletion", this.outGoings);
+  async onDeleteOutGoing(id: any, slidingItem: ItemSliding) {
+    let alert = this.alertCtrl.create({
+      // title: "Confirm Deletion",
+      message: "Do you want to delete this item?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {
+            slidingItem.close();
+          }
+        },
+        {
+          text: "Delete",
+          handler: () => {
+            this.deleteItem(id);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
+  async deleteItem(id: any) {
+    await this.data.deleteOutGoingItem(id);
     this.getData();
   }
 }

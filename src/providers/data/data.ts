@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DataModel } from "./data.model";
 import { Storage } from "@ionic/storage";
-import { DateTime } from "ionic-angular/umd";
 import { v4 as uuid } from "uuid";
 
 @Injectable()
