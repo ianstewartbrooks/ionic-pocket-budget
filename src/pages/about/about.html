@@ -1,33 +1,40 @@
 <ion-header>
 
-  <ion-navbar color="darkBlue">
+  <ion-navbar color="dark">
     <ion-title text-center>About</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-  <h1 text-center>Pcoket Budget</h1>
+  <h1 text-center>Pocket Budget</h1>
   <h4 text-center>Version 1.0.0</h4>
-  <div text-center>
-    <ion-icon name="logo-usd" class="main-icon"></ion-icon>
-  </div>
   <div text-center>
     <p>By <a href="http://www.iansbrooks.com/">Ian Brooks</a></p>
   </div>
 
-  <h3>How To Use Pocket Budget</h3>
-  <ul>
-    <li>Click the
-      <ion-icon name="add">
-      </ion-icon> at the top of the income and out goings pages to add a new item. This will open up a new screen where you
-      can enter a name and amount for the item.
-    </li>
-    <li>To delete an item swipe it right and click the bin icon</li>
-    <li>To edit an item swipe it left and click on the brush icon</li>
-  </ul>
+  <ion-card id="img-container" text-center>
+    <ion-img width="50%" height="50%" src="../../assets/imgs/pocket-budget.png">
+    </ion-img>
+  </ion-card>
 
-  <h4><strong>Please Note</strong></h4>
-  <p>For your security the information you enter into this app is stored on your device and not on the internet. The only
-    people who will see the data are those who have access to your device.</p>
+  <ion-card>
+    <ion-card-content>
+      <h3>How To Use Pocket Budget</h3>
+      <ul>
+        <li>Click the
+          <ion-icon name="add">
+          </ion-icon> at the top of the income and out goings pages to add a new item. This will open up a new screen where
+          you can enter a name and amount for the item.
+        </li>
+        <li>To delete an item swipe it right and click the bin icon</li>
+        <li>To edit an item swipe it left and click on the brush icon</li>
+      </ul>
+
+      <h3>Your Data</h3>
+      <p>For your security and safety the information you enter into this app is stored on your device and not on some cloud
+        server on the internet. The only people who will see the data are those who have access to your device.</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

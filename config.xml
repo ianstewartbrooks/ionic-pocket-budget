@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ianb.pocket.budget" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Pocket Budget</name>
     <description>A simple, big, bright and colourful income and expenditure tracker.</description>
     <author email="ianstewartbrooks@gmail.com" href="http://www.iansbrooks.com/">Ian S Brooks</author>
@@ -84,5 +84,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.2" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
     <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="7.1.1" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
