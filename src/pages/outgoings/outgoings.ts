@@ -46,7 +46,7 @@ export class OutgoingsPage {
 
     if (this.outGoings == null || this.outGoings.length == 0) {
       this.message =
-        "No out goings added yet. Add some by clicking the + icon in the top right corner.";
+        "No out goings added yet, add some by clicking the + icon in the top right corner.";
       this.showTotals = false;
       this.totalOutGoings = 0;
     } else {

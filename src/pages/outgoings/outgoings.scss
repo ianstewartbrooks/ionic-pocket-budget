@@ -1,13 +1,13 @@
 page-outgoings {
     .message {
         text-align: center;
-        font-size: 3vh;
+        font-size: 1.8em;
         margin-bottom: 10px;
     }
 
     .instructions {
         text-align: center;
-        font-size: 2vh;
+        font-size: 1.4em;
         font-weight: bold;
     }
     .delete-icon {
@@ -25,14 +25,14 @@ page-outgoings {
     }
 
     .name {
-        font-size: 3vh;
+        font-size: 2em;
         color: gold;
         font-weight: bold;
         text-align: center;
     }
 
     .amount {
-        font-size: 3vh;
+        font-size: 1.8em;
         color: white;
         font-weight: bold;
         text-align: center;
@@ -41,7 +41,7 @@ page-outgoings {
     .totals {
         margin: 0 auto;
         text-align: center;
-        font-size: 3vh;
+        font-size: 1.6em;
         border-radius: 10px;
 
         .label {

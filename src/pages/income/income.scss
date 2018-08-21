@@ -1,13 +1,13 @@
 page-income {
     .message {
         text-align: center;
-        font-size: 3vh;
+        font-size: 1.8em;
         margin-bottom: 10px;
     }
 
     .instructions {
         text-align: center;
-        font-size: 2vh;
+        font-size: 1.4em;
         font-weight: bold;
     }
 
@@ -27,14 +27,14 @@ page-income {
     }
 
     .name {
-        font-size: 4vh;
+        font-size: 2em;
         color: gold;
         font-weight: bold;
         text-align: center;
     }
 
     .amount {
-        font-size: 3vh;
+        font-size: 1.8em;
         color: white;
         font-weight: bold;
         text-align: center;
@@ -43,14 +43,15 @@ page-income {
     .totals {
         margin: 0 auto;
         text-align: center;
-        font-size: 3vh;
+        font-size: 1.6em;
         border-radius: 10px;
 
         .label {
             font-weight: bold;
         }
         .value {
-            font-weight: 100;
+            font-weight: bold;
+            color: darkgreen;
         }
     }
 }

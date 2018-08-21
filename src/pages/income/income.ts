@@ -50,7 +50,7 @@ export class IncomePage {
 
     if (this.income == null || this.income.length == 0) {
       this.message =
-        "No income added yet. Add some by clicking the + icon in the top right corner.";
+        "No income added yet, add some by clicking the + icon in the top right corner.";
       this.showTotals = false;
       this.totalIncome = 0;
     } else {
