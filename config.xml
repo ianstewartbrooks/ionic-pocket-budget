@@ -3,7 +3,7 @@
     <name>Pocket Budget</name>
     <description>A simple, big, bright and colourful income and expenditure tracker.</description>
     <author email="ianstewartbrooks@gmail.com" href="http://www.iansbrooks.com/">Ian S Brooks</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.31:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

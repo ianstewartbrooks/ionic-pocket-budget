@@ -19,12 +19,10 @@ export class OverviewPage {
   ) {}
 
   async GetTotals() {
-    console.log("getTotals begin...");
-    await this.data.testGetData();
+    await this.data.OverviewGetData();
     this.totalAvailable = this.data.getTotalAvailable();
     this.totalIncome = this.data.getTotalIncome();
     this.totalOutGoings = this.data.getTotalOutGoings();
-    console.log("getTotals end...");
   }
 
   ionViewDidEnter() {

@@ -101,7 +101,7 @@ export class DataProvider {
     let storeResult = await this.storage.set("outGoings", this.outGoings);
   }
 
-  async testGetData() {
+  async OverviewGetData() {
     let temp: any[] = [];
     let total = 0;
     console.log("Test GetData");

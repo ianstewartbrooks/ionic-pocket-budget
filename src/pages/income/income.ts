@@ -21,6 +21,9 @@ import { ModalEditPage } from "../modals/modal-edit/modal-edit";
 export class IncomePage {
   income: DataModel[] = [];
   message: string;
+  showTotals: boolean = false;
+  numOfItems: number = 0;
+  totalIncome: number = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -31,8 +34,6 @@ export class IncomePage {
     this.income = [];
     this.getData();
   }
-
-  // onClick(id: number) {}
 
   addIncome() {
     let data = { type: "income" };
@@ -50,9 +51,18 @@ export class IncomePage {
     if (this.income == null || this.income.length == 0) {
       this.message =
         "No income added yet. Add some by clicking the + icon in the top right corner.";
+      this.showTotals = false;
+      this.totalIncome = 0;
     } else {
-      this.message =
-        "Here is all your income. Swipe item left/right to access options.";
+      this.message = "";
+      // "Here is all your income. Swipe item left/right to access options.";
+      this.showTotals = true;
+      this.numOfItems = this.income.length;
+      let total = 0;
+      for (let index = 0; index < this.income.length; index++) {
+        total += Number(this.income[index].amount);
+      }
+      this.totalIncome = total;
     }
   }
 

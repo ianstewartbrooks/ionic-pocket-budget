@@ -13,12 +13,28 @@
 
 
 <ion-content padding>
-  <p class="message">{{ message }}</p>
+  <ion-toolbar *ngIf="showTotals">
+    <div class="totals">
+      <span class="label">Entries: </span>
+      <span class="value">{{ numOfItems }} </span>
+      <span class="label">Total: </span>
+      <span class="value">{{ totalIncome | number:"1.2" }}</span>
+    </div>
+  </ion-toolbar>
+  <div *ngIf="message">
+    <p class="message">{{ message }}</p>
+  </div>
+  <div *ngIf="!message">
+    <p class="instructions">Swipe an entry left or right to delete or edit it.</p>
+  </div>
+
+
+
   <ion-list>
     <div *ngFor="let item of income">
       <ion-item-sliding #slidingItem>
         <ion-item no-lines>
-          <ion-card (click)="onClick(item.id)">
+          <ion-card (click)="onClick(item.id)" class="income-card">
             <ion-card-header>
               <p class="name">{{ item.name }}</p>
             </ion-card-header>

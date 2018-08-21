@@ -17,6 +17,9 @@ import { DataModel } from "../../providers/data/data.model";
 export class OutgoingsPage {
   outGoings: DataModel[] = [];
   message: string;
+  showTotals: boolean = false;
+  numOfItems: number = 0;
+  totalOutGoings: number = 0;
 
   constructor(
     public navCtrl: NavController,
@@ -47,10 +50,19 @@ export class OutgoingsPage {
 
     if (this.outGoings == null || this.outGoings.length == 0) {
       this.message =
-        "No expenditure added yet. Add some by clicking the + icon in the top right corner.";
+        "No out goings added yet. Add some by clicking the + icon in the top right corner.";
+      this.showTotals = false;
+      this.totalOutGoings = 0;
     } else {
-      this.message =
-        "Here is your expenditure. Swipe item left/right to access options.";
+      this.message = "";
+      // "Here is your expenditure. Swipe item left/right to access options.";
+      this.showTotals = true;
+      this.numOfItems = this.outGoings.length;
+      let total = 0;
+      for (let index = 0; index < this.outGoings.length; index++) {
+        total += Number(this.outGoings[index].amount);
+      }
+      this.totalOutGoings = total;
     }
   }
 
