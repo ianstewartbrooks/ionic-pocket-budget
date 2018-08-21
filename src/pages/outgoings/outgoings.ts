@@ -31,10 +31,6 @@ export class OutgoingsPage {
     this.getData();
   }
 
-  onDeleteItem() {}
-
-  // onClick(id: number) {}
-
   addOutGoing() {
     let data = { type: "outGoing" };
     let modalAddPage = this.modalCtrl.create("ModalAddPage", data);
