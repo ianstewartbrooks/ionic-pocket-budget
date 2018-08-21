@@ -34,7 +34,9 @@ page-about {
         font-weight: bold;
     }
 
-    #img-container {
-        border-radius: 15px;
+    .img-container {
+        text-align: center;
+        margin: 0 auto;
+        width: 80%;
     }
 }
