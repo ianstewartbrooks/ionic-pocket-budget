@@ -30,4 +30,8 @@ export class OverviewPage {
   ionViewDidEnter() {
     this.GetTotals();
   }
+
+  switchTab(index) {
+    this.navCtrl.parent.select(index);
+  }
 }
