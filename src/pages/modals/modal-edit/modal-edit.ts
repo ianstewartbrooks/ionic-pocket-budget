@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
 import {
   IonicPage,
   NavController,
@@ -13,10 +13,17 @@ import { DataProvider } from "../../../providers/data/data";
   templateUrl: "modal-edit.html"
 })
 export class ModalEditPage {
+  @ViewChild("inputName")
+  inputName;
+  @ViewChild("inputAmount")
+  inputAmount;
+
   type: string;
   itemName: any;
   amount: any;
   id: any;
+  pageColor: string;
+  message: string = "";
 
   constructor(
     public navCtrl: NavController,
@@ -26,12 +33,27 @@ export class ModalEditPage {
   ) {
     // Get passed Params
     this.type = this.navParams.get("type");
+    if (this.type == "income") {
+      this.pageColor = "darkGreen";
+    } else {
+      this.pageColor = "darkRed";
+    }
+
     this.id = this.navParams.get("id");
     this.itemName = this.navParams.get("itemName");
     this.amount = this.navParams.get("amount");
   }
 
   onOk() {
+    if (!this.itemName) {
+      this.message = "Give your item a name";
+      this.inputName.setFocus();
+    }
+    if (!this.amount) {
+      this.message = "Enter an amount";
+      this.inputAmount.setFocus();
+    }
+
     if (this.itemName && this.amount) {
       if (this.type == "income") {
         this.data.editIncome(this.id, this.itemName, this.amount);

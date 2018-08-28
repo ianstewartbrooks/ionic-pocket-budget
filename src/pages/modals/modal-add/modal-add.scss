@@ -1,9 +1,14 @@
 page-modal-add {
     p {
         text-align: center;
-        font-size: 3vh;
+        font-size: 1.4em;
         font-weight: bold;
     };
+
+    #message {
+        font-size: 1.2em;
+        color: red;
+    }
 
     #form {
         margin-left: 5%;
@@ -12,7 +17,7 @@ page-modal-add {
         text-align: center;
 
         ion-input, ion-label {
-            font-size: 3vh;
+            font-size: 1.8em;
             font-weight: bold;
             text-align: center;
         }
