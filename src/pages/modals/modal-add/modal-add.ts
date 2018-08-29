@@ -38,10 +38,20 @@ export class ModalAddPage {
     }
   }
 
+  ionViewDidLoad() {
+    setTimeout(() => {
+      this.inputName.setFocus();
+    }, 1000); //SET A LONG TIME IF YOUR ARE IN A MODAL/ALERT
+  }
+
   // Functions
 
   closeModal() {
     this.viewCtrl.dismiss();
+  }
+
+  focusAmount() {
+    this.inputAmount.setFocus();
   }
 
   onOk() {

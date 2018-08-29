@@ -53,16 +53,17 @@ export class DataProvider {
 
   async editIncome(id: any, itemName: any, amount: any) {
     let returnIndex = this.income.findIndex(element => {
-      return (element.id = id);
+      return element.id == id;
     });
+
     this.income[returnIndex].name = itemName;
-    this.income[returnIndex].amount = amount;
+    this.income[returnIndex].amount = Number(amount);
     let storeResult = await this.storage.set("income", this.income);
   }
 
   async deleteIncomeItem(id: any) {
     let returnIndex = this.income.findIndex(element => {
-      return (element.id = id);
+      return element.id == id;
     });
     this.income.splice(returnIndex, 1);
     let storeResult = await this.storage.set("income", this.income);
@@ -79,14 +80,13 @@ export class DataProvider {
     this.record.id = uuid();
     this.record.name = itemName;
     this.record.amount = amount;
-    console.log("Out Goings ", this.outGoings);
     this.outGoings.push(this.record);
     let result = await this.storage.set("outGoings", this.outGoings);
   }
 
   async editOutGoing(id: any, itemName: any, amount: any) {
     let returnIndex = this.outGoings.findIndex(element => {
-      return (element.id = id);
+      return element.id == id;
     });
     this.outGoings[returnIndex].name = itemName;
     this.outGoings[returnIndex].amount = amount;
@@ -95,7 +95,7 @@ export class DataProvider {
 
   async deleteOutGoingItem(id: any) {
     let returnIndex = this.outGoings.findIndex(element => {
-      return (element.id = id);
+      return element.id == id;
     });
     this.outGoings.splice(returnIndex, 1);
     let storeResult = await this.storage.set("outGoings", this.outGoings);
@@ -111,21 +111,18 @@ export class DataProvider {
     if (temp == null) {
       temp = [];
     }
-    console.log("temp income data: ", temp);
 
     total = 0;
     for (let index = 0; index < temp.length; index++) {
       total += Number(temp[index].amount);
     }
     this.totalIncome = total;
-    console.log("Total of Temp Income: ", total);
 
     // Out Goings
     temp = await this.getData("outGoings");
     if (temp == null) {
       temp = [];
     }
-    console.log("temp outgoing data: ", temp);
 
     total = 0;
     for (let index = 0; index < temp.length; index++) {
@@ -133,13 +130,9 @@ export class DataProvider {
     }
 
     this.totalOutGoings = total;
-    console.log("Total of Temp OutGoings: ", total);
 
     // Total Available
     this.totalAvailable = this.totalIncome - this.totalOutGoings;
-    console.log("Total Available: ", this.totalAvailable);
-
-    console.log("Finished test GetData");
   }
 
   async getData(type: string): Promise<any> {

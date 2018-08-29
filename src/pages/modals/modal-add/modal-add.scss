@@ -17,14 +17,23 @@ page-modal-add {
         text-align: center;
 
         ion-input, ion-label {
-            font-size: 1.8em;
             font-weight: bold;
             text-align: center;
         }
+        ion-label {
+            font-size: 1.8em;
+        }
+
         ion-input {
             input {
+                font-size: 1.6em;
                 border: 0px;
+                border-bottom: 1px solid lightgray;
                 text-align: center;
+            }
+            input::placeholder {
+                font-size: 0.6em;
+                font-weight: 500;
             }
         }
     }

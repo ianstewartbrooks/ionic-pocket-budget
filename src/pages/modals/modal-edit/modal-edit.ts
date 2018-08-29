@@ -44,6 +44,20 @@ export class ModalEditPage {
     this.amount = this.navParams.get("amount");
   }
 
+  ionViewDidLoad() {
+    setTimeout(() => {
+      this.inputName.setFocus();
+    }, 1000); //SET A LONG TIME IF YOUR ARE IN A MODAL/ALERT
+  }
+
+  focusAmount() {
+    this.inputAmount.setFocus();
+  }
+
+  setfocusAmount() {
+    this.inputAmount.setFocus();
+  }
+
   onOk() {
     if (!this.itemName) {
       this.message = "Give your item a name";

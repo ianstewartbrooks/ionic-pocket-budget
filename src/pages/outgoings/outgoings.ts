@@ -20,6 +20,8 @@ export class OutgoingsPage {
   showTotals: boolean = false;
   numOfItems: number = 0;
   totalOutGoings: number = 0;
+  sortBy: string = "name";
+  showSort: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -51,15 +53,35 @@ export class OutgoingsPage {
       this.totalOutGoings = 0;
     } else {
       this.message = "";
-      // "Here is your expenditure. Swipe item left/right to access options.";
       this.showTotals = true;
       this.numOfItems = this.outGoings.length;
       let total = 0;
       for (let index = 0; index < this.outGoings.length; index++) {
         total += Number(this.outGoings[index].amount);
       }
+      // See if we have enough items for sorting
+      this.showSort = false;
       this.totalOutGoings = total;
+      if (this.outGoings.length > 1) {
+        this.showSort = true;
+        if (this.sortBy == "name") {
+          this.onSortByName();
+        } else {
+          this.onSortByAmount();
+        }
+      }
     }
+  }
+
+  onSortByName() {
+    let sorted = this.outGoings.sort((a, b) => a.name.localeCompare(b.name));
+    this.outGoings = sorted;
+  }
+
+  onSortByAmount() {
+    this.outGoings = this.outGoings.sort((obj1, obj2) => {
+      return obj1.amount - obj2.amount;
+    });
   }
 
   onEditOutGoing(id: any, itemName: any, amount: any) {

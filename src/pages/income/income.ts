@@ -24,6 +24,8 @@ export class IncomePage {
   showTotals: boolean = false;
   numOfItems: number = 0;
   totalIncome: number = 0;
+  sortBy: string = "name";
+  showSort: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -63,7 +65,29 @@ export class IncomePage {
         total += Number(this.income[index].amount);
       }
       this.totalIncome = total;
+
+      // see if we have enough items to sort
+      this.showSort = false;
+      if (this.income.length > 1) {
+        this.showSort = true;
+        if (this.sortBy == "name") {
+          this.onSortByName();
+        } else {
+          this.onSortByAmount();
+        }
+      }
     }
+  }
+
+  onSortByName() {
+    let sorted = this.income.sort((a, b) => a.name.localeCompare(b.name));
+    this.income = sorted;
+  }
+
+  onSortByAmount() {
+    this.income = this.income.sort((obj1, obj2) => {
+      return obj1.amount - obj2.amount;
+    });
   }
 
   onEditIncome(id: any, itemName: any, amount: any) {

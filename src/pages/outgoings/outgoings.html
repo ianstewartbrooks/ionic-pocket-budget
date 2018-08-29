@@ -3,7 +3,7 @@
   <ion-navbar color="darkRed">
     <ion-title text-center>Out Goings</ion-title>
     <ion-buttons right>
-      <button ion-button (click)="addOutGoing()" icon-only outline>
+      <button ion-button (click)="addOutGoing()" icon-only outline color="light">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -29,6 +29,17 @@
   </div>
 
   <ion-list>
+    <div *ngIf="showSort" id="sortSwitch">
+      <ion-segment [(ngModel)]="sortBy" color="darkRed">
+        <ion-segment-button value="name" (ionSelect)="onSortByName()">
+          Sort By Name
+        </ion-segment-button>
+        <ion-segment-button value="amount" (ionSelect)="onSortByAmount()">
+          Sort By Amount
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
     <div *ngFor="let item of outGoings">
       <ion-item-sliding #slidingItem>
         <ion-item no-lines>
