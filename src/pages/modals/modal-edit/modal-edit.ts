@@ -59,6 +59,7 @@ export class ModalEditPage {
   }
 
   onOk() {
+    this.amount = this.inputAmount.value;
     if (!this.itemName) {
       this.message = "Give your item a name";
       this.inputName.setFocus();
@@ -69,6 +70,7 @@ export class ModalEditPage {
     }
 
     if (this.itemName && this.amount) {
+      this.amount = Number(this.amount);
       if (this.type == "income") {
         this.data.editIncome(this.id, this.itemName, this.amount);
       } else {
