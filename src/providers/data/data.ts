@@ -46,7 +46,8 @@ export class DataProvider {
     this.record.id = uuid();
     this.record.name = itemName;
     this.record.amount = amount;
-    console.log("income ", this.income);
+    this.record.date = new Date();
+    console.log("Record: ", this.record);
     this.income.push(this.record);
     let result = await this.storage.set("income", this.income);
   }
@@ -58,6 +59,7 @@ export class DataProvider {
 
     this.income[returnIndex].name = itemName;
     this.income[returnIndex].amount = Number(amount);
+    this.income[returnIndex].date = new Date();
     let storeResult = await this.storage.set("income", this.income);
   }
 
@@ -80,6 +82,8 @@ export class DataProvider {
     this.record.id = uuid();
     this.record.name = itemName;
     this.record.amount = amount;
+    this.record.date = new Date();
+    console.log("Record: ", this.record);
     this.outGoings.push(this.record);
     let result = await this.storage.set("outGoings", this.outGoings);
   }
@@ -90,6 +94,7 @@ export class DataProvider {
     });
     this.outGoings[returnIndex].name = itemName;
     this.outGoings[returnIndex].amount = amount;
+    this.outGoings[returnIndex].date = new Date();
     let storeResult = await this.storage.set("outGoings", this.outGoings);
   }
 

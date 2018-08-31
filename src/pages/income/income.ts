@@ -26,6 +26,7 @@ export class IncomePage {
   totalIncome: number = 0;
   sortBy: string = "name";
   showSort: boolean = false;
+  sortAsc: boolean = true;
 
   constructor(
     public navCtrl: NavController,
@@ -79,15 +80,60 @@ export class IncomePage {
     }
   }
 
+  sortOrder() {
+    console.log("onSortOrder fired!");
+    console.log("Sort Asc: ", this.sortAsc);
+    console.log("By : ", this.sortBy);
+    if (this.sortBy == "name") {
+      console.log("In by name if statement");
+      this.onSortByName();
+    }
+
+    if (this.sortBy == "amount") {
+      this.onSortByAmount();
+    }
+
+    if (this.sortBy == "date") {
+      this.onSortByDate();
+    }
+  }
+
   onSortByName() {
-    let sorted = this.income.sort((a, b) => a.name.localeCompare(b.name));
-    this.income = sorted;
+    if (this.sortAsc) {
+      let sorted = this.income.sort((a, b) => a.name.localeCompare(b.name));
+      this.income = sorted;
+      console.log("Ascending: ", this.income);
+      return;
+    } else {
+      let sorted = this.income.sort((a, b) => b.name.localeCompare(a.name));
+      this.income = sorted;
+      console.log("Descending: ", this.income);
+      return;
+    }
+  }
+
+  onSortByDate() {
+    if (this.sortAsc) {
+      this.income = this.income.sort((obj1, obj2) => {
+        return obj1.date - obj2.date;
+      });
+    } else {
+      this.income = this.income.sort((obj1, obj2) => {
+        return obj2.date - obj1.date;
+      });
+    }
   }
 
   onSortByAmount() {
-    this.income = this.income.sort((obj1, obj2) => {
-      return obj1.amount - obj2.amount;
-    });
+    if (this.sortAsc) {
+      this.income = this.income.sort((obj1, obj2) => {
+        return obj1.amount - obj2.amount;
+      });
+    } else {
+      this.income = this.income.sort((obj1, obj2) => {
+        return obj2.amount - obj1.amount;
+      });
+    }
   }
 
   onEditIncome(id: any, itemName: any, amount: any) {

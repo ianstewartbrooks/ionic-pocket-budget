@@ -30,14 +30,29 @@
 
   <ion-list>
     <div *ngIf="showSort" id="sortSwitch">
-      <ion-segment [(ngModel)]="sortBy" color="darkRed">
-        <ion-segment-button value="name" (ionSelect)="onSortByName()">
-          Sort By Name
-        </ion-segment-button>
-        <ion-segment-button value="amount" (ionSelect)="onSortByAmount()">
-          Sort By Amount
-        </ion-segment-button>
-      </ion-segment>
+      <ion-row>
+        <ion-col>
+          <ion-segment [(ngModel)]="sortBy" color="darkRed">
+            <ion-segment-button value="name" (ionSelect)="onSortByName()">
+              Name
+            </ion-segment-button>
+            <ion-segment-button value="amount" (ionSelect)="onSortByAmount()">
+              Amount
+            </ion-segment-button>
+            <ion-segment-button value="date" (ionSelect)="onSortByDate()">
+              Added On
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item no-lines>
+            <ion-label>Ascending Order:</ion-label>
+            <ion-toggle checked="" [(ngModel)]="sortAsc" (ionChange)="sortOrder()"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
     </div>
 
     <div *ngFor="let item of outGoings">
@@ -49,6 +64,7 @@
             </ion-card-header>
             <ion-card-content>
               <p class="amount">{{ item.amount | number:"1.2"}}</p>
+              <p class="date">{{item.date | date:'longDate'}}</p>
             </ion-card-content>
           </ion-card>
         </ion-item>

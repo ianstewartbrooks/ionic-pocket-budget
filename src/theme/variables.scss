@@ -48,16 +48,14 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
-
+// $toggle-ios-handle-background-color : color($colors, dark);
+$toggle-ios-background-color-on: color($colors, dark);
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
-
+$toggle-md-handle-background-color-on : black;
+$toggle-md-handle-background-color-off : black;
 
 // App Windows Variables
 // --------------------------------------------------
