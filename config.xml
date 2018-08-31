@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.isbrotech.pocketbudget" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.iansbrooks.pocketbudget" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Pocket Budget</name>
     <description>A simple, big, bright and colourful income and expenditure tracker that stores the data on your phone rather than in the cloud.</description>
     <author email="ianstewartbrooks@gmail.com" href="http://www.iansbrooks.com/">Ian S Brooks</author>

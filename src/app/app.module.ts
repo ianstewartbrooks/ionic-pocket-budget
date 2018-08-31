@@ -17,6 +17,8 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { DataProvider } from "../providers/data/data";
 import { AboutPage } from "../pages/about/about";
 
+import { DecimalPipe } from "@angular/common";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -45,7 +47,8 @@ import { AboutPage } from "../pages/about/about";
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DataProvider,
-    AppVersion
+    AppVersion,
+    DecimalPipe
   ]
 })
 export class AppModule {}

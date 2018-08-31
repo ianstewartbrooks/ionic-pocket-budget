@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild } from "@angular/core";
+import { DecimalPipe } from "@angular/common";
 import {
   IonicPage,
   NavController,
@@ -29,7 +30,8 @@ export class ModalEditPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
-    private data: DataProvider
+    private data: DataProvider,
+    private decimalPipe: DecimalPipe
   ) {
     // Get passed Params
     this.type = this.navParams.get("type");
@@ -41,13 +43,20 @@ export class ModalEditPage {
 
     this.id = this.navParams.get("id");
     this.itemName = this.navParams.get("itemName");
-    this.amount = this.navParams.get("amount");
+    this.amount = this.twoDecimalAmount(this.navParams.get("amount"));
+
+    // Remove all commas from the amount
+    this.amount = this.amount.toString().replace(/,/g, "");
   }
 
   ionViewDidLoad() {
     setTimeout(() => {
       this.inputName.setFocus();
-    }, 1000); //SET A LONG TIME IF YOUR ARE IN A MODAL/ALERT
+    }, 500); //SET A LONG TIME IF YOUR ARE IN A MODAL/ALERT
+  }
+
+  twoDecimalAmount(amount) {
+    return this.decimalPipe.transform(amount, "1.2");
   }
 
   focusAmount() {
@@ -59,7 +68,6 @@ export class ModalEditPage {
   }
 
   onOk() {
-    this.amount = this.inputAmount.value;
     if (!this.itemName) {
       this.message = "Give your item a name";
       this.inputName.setFocus();

@@ -28,8 +28,7 @@
       <ion-label>Amount</ion-label>
     </ion-item>
     <ion-item>
-      <ion-input type="number" name="amount" (keyup.enter)="onOk()" placeholer="eg 50, 100.00" value="{{amount | number:'1.2'}}"
-        #inputAmount></ion-input>
+      <ion-input type="number" name="amount" (keyup.enter)="onOk()" placeholer="eg 50, 100.00" [(ngModel)]="amount" #inputAmount></ion-input>
     </ion-item>
   </div>
 </ion-content>
