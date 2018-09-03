@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.iansbrooks.pocketbudget" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Pocket Budget</name>
-    <description>A simple, big, bright and colourful income and expenditure tracker that stores the data on your phone rather than in the cloud.</description>
-    <author email="ianstewartbrooks@gmail.com" href="http://www.iansbrooks.com/">Ian S Brooks</author>
+<widget id="com.isbrotech.pocketbudgetmoneytracker" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Pocket Budget Money Tracker</name>
+    <description>A simple, bright and colourful income and expenditure tracker that stores the data on your phone rather than in the cloud.</description>
+    <author email="info@isbrotech.com" href="http://www.isbrotech.com/">Ian Brooks @ ISBrotech</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -79,12 +79,12 @@
     </platform>
     <allow-navigation href="http://192.168.1.31:8100" />
     <allow-navigation href="http://192.168.1.59:8100" />
+    <engine name="android" spec="^7.1.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.2" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
-    <engine name="android" spec="^7.1.1" />
-    <engine name="ios" spec="^4.5.5" />
+    <engine name="ios" spec="~4.5.5" />
 </widget>
