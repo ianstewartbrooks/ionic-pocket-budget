@@ -18,6 +18,7 @@ import { DataProvider } from "../providers/data/data";
 import { AboutPage } from "../pages/about/about";
 
 import { DecimalPipe } from "@angular/common";
+import { PageHeaderComponent } from "../components/page-header/page-header";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DecimalPipe } from "@angular/common";
     OverviewPage,
     OutgoingsPage,
     IncomePage,
-    AboutPage
+    AboutPage,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule,
